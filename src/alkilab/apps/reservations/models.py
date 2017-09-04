@@ -2,12 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class DocumentType(models.Model):
-    """Model definition for the people's document type."""
-    name = models.CharField(max_length=50, blank=False)
 
-    def __str__(self):
-        self.name
 
 class Person(models.Model):
     """Model definition for Person."""
@@ -17,7 +12,6 @@ class Person(models.Model):
     id_number = models.IntegerField(blank=False)
 
     user = models.ForeignKey(User)
-    id_type = models.ForeignKey(DocumentType)
 
     def __str__(self):
         return self.firstname

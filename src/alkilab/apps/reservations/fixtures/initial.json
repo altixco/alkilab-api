@@ -1,0 +1,67 @@
+[
+    {
+        "model": "reservations.Country",
+        "pk": 1,
+        "fields": {
+        "name": "Colombia"
+        }
+    },
+    {
+        "model": "reservations.State",
+        "pk": 1,
+        "fields": {
+            "name": "Meta",
+            "country": 1
+        }
+    },
+    {
+        "model": "reservations.City",
+        "pk": 1,
+        "fields": {
+            "name": "Villavicencio",
+            "state": 1 
+        }
+    },
+    {
+        "model": "reservations.ReservationState",
+        "pk": 1,
+        "fields": {
+            "name": "Ready"
+        }
+    },
+    {
+        "model": "reservations.ReservationState",
+        "pk": 2,
+        "fields": {
+            "name": "Cancelled"
+        }
+    },
+    {
+        "model": "reservations.RoomType",
+        "pk": 1,
+        "fields": {
+            "name": "Laboratory"
+        }
+    },
+    {
+        "model": "reservations.RoomType",
+        "pk": 2,
+        "fields": {
+            "name": "Conference Room"
+        }
+    },
+    {
+        "model": "reservations.RoomState",
+        "pk": 1,
+        "fields": {
+            "name": "Enabled"
+        }
+    },
+    {
+        "model": "reservations.RoomState",
+        "pk": 2,
+        "fields": {
+            "name": "On Maintenance"
+        }
+    }
+]
