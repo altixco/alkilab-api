@@ -14,8 +14,11 @@ services:
     build: .
     container_name: alki-web01
     #command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn alkilab.wsgi -b 0.0.0.0:8080"
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8080"
-
+    command: bash -c "python manage.py makemigrations && 
+                      python manage.py migrate && 
+                      python manage.py loaddata initial &&
+                      python manage.py newsuperuser admin admin123* &&
+                      python manage.py runserver 0.0.0.0:8080"
     depends_on:
       - db
     volumes:
