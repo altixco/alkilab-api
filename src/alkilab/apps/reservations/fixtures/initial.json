@@ -63,5 +63,25 @@
         "fields": {
             "name": "On Maintenance"
         }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9999,
+        "fields":{
+            "username": "prueba",
+            "email" : "prueba@prueba.com",
+            "password": "prueba123*"
+        }
+    },
+    {
+        "model": "reservations.Person",
+        "pk": 1,
+        "fields":{
+            "firstname" : "Pepito",
+            "lastname" : "Perez",
+            "birth_date" : "2000-04-20",
+            "id_number" : "00000",
+            "user" : 9999
+        }
     }
 ]

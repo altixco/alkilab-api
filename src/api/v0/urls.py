@@ -1,6 +1,11 @@
 from rest_framework.routers import DefaultRouter
 from .views import RoomViewSet, PersonViewSet
 
+people_list = PersonViewSet.as_view({
+    'get': 'list'
+})
+
+
 
 router = DefaultRouter()
 router.register(r'users', RoomViewSet, base_name='users')
