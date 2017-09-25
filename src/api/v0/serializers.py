@@ -11,6 +11,18 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email')
+    
+    def validate(self, data):
+        user = User.objects.filter(username = data['username'])
+        email = User.objects.filter(email = data['email'])
+
+        if user:
+            raise serializers.ValidationError("The user already exists")
+        
+        if email:
+            raise serializers.ValidationError("The email already exists")
+
+        return data
 
 class PersonSerializer(serializers.ModelSerializer):
 
@@ -18,7 +30,26 @@ class PersonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Person
-        fields = ('id', 'firstname', 'lastname', 'birth_date', 'id_number', 'user')
+        fields = ('id', 'firstname', 'lastname','user')
+
+    # def validate(self, data):
+    #     return data
+        # user_data = data.pop('user')
+        # serializer = UserSerializer(data=user_data)
+
+        # if not serializer.is_valid():
+        #     raise serializer.errors
+
+        # return data
+
+    # def create(self, validated_data):
+    #     user_created = self.user.save()
+    
+    #     person_data = {'firstname': validated_data.data['firstname'],
+    #                    'lastname': validated_data.data['lastname'],
+    #                    'user': user_created}
+
+    #     person_serializer = PersonSerializer(data = person_data)
 
 class ReservationStateSerializer(serializers.ModelSerializer):
     class Meta:
