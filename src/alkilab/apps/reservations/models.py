@@ -6,8 +6,8 @@ class Person(models.Model):
     """Model definition for Person."""
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
-    birth_date = models.DateField(auto_now=False, auto_now_add=False)
-    id_number = models.IntegerField(blank=False)
+    birth_date = models.DateField(auto_now=False, auto_now_add=False, blank=True , null=True)
+    id_number = models.IntegerField(blank=True, null=True)
 
     user = models.ForeignKey(User)
 
